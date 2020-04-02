@@ -1,16 +1,8 @@
-import React, { useState, useMemo } from 'react';
+import React from 'react';
 
 export function Speedometer(props) {
-    // -45 to 225 for a total of 270 degrees of rotation
-    const [rotation, setRotation] = useState(225);
     return (
         <React.Fragment>
-            <input 
-                type="text" 
-                defaultValue={rotation}
-                onChange={(e)=>setRotation(e.target.value)}
-            />
-
             <div style={{
                 position: "relative",
                 width: "275px",
@@ -21,13 +13,22 @@ export function Speedometer(props) {
                 }} src={props.outerCircle} alt="" />
                 <img style={{
                     position: "absolute"
-                }} src="speed-arc (1).svg" alt="" />
+                }} src={props.speedArc} alt="" />
                 <img style={{
                     position: "absolute",
                     width: "54px",
                     height: "68px",
                     transform: "translate(216px, 166px)"
                 }} src="red-zone.svg" alt="" />
+                <div style={{
+                    position: "absolute",
+                    width: "230px",
+                    height: "16px",
+                    transform: `translate(23px, 129px) rotate(${props.rotation}deg)`,
+                    transition: "all 0.5s ease 0s"
+                }}>
+                    <img src={props.needle} alt="needle" />
+                </div>
                 <img style={{
                     position: "absolute",
                     width: "148px",
@@ -36,12 +37,32 @@ export function Speedometer(props) {
                 }} src={props.innerCircle} alt="" />
                 <div style={{
                     position: "absolute",
-                    width: "230px",
-                    height: "16px",
-                    transform: `translate(23px, 129px) rotate(${rotation}deg)`,
-                    transition: "all 0.5s ease 0s"
+                    width: "275px",
+                    height: "235px",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    transform: "translate(0, 23px)"
                 }}>
-                    <img src="needle.svg" alt="needle" />
+                    <div style={{
+                        fontFamily: "SegroePro",
+                        fontWeight: "700",
+                        lineHeight: "normal",
+                        fontSize: "32px",
+                        color: "#fff"
+                    }}>
+                        {props.displayValue}
+                    </div>
+                    <div style={{
+                        fontFamily: "SegroePro",
+                        fontWeight: "700",
+                        lineHeight: "normal",
+                        fontSize: "14px",
+                        color: "#fff"
+                    }}>
+                        Images/Second
+                    </div>
                 </div>
             </div>
         </React.Fragment>

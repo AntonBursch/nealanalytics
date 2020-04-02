@@ -5,8 +5,16 @@ import { FPGA } from './components/fpga';
 function App() {
   return (
     <React.Fragment>
-      <CPU />
-      <FPGA/>
+      <div style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        paddingTop: 35
+      }}>
+        <CPU />
+        <FPGA />
+      </div>
     </React.Fragment>
   );
 }
