@@ -46,7 +46,7 @@ export function Speedometer(props) {
                     transform: "translate(0, 23px)"
                 }}>
                     <div style={{
-                        fontFamily: "SegroePro",
+                        fontFamily: "SegoePro",
                         fontWeight: "700",
                         lineHeight: "normal",
                         fontSize: "32px",
@@ -55,7 +55,7 @@ export function Speedometer(props) {
                         {props.displayValue}
                     </div>
                     <div style={{
-                        fontFamily: "SegroePro",
+                        fontFamily: "SegoePro",
                         fontWeight: "700",
                         lineHeight: "normal",
                         fontSize: "14px",

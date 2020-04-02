@@ -6,7 +6,6 @@ export function Gauge(props) {
         <React.Fragment>
             <div style={{
                 backgroundColor: "#000000df",
-                width: "50%",
                 marginBottom: 35,
                 padding: 50
             }}>
@@ -37,14 +36,86 @@ export function Gauge(props) {
                         {props.gaugeTitle}
                     </div>
                 </div>
-                <Speedometer
-                    displayValue={props.displayValue}
-                    rotation={props.rotation}
-                    innerCircle={props.innerCircle}
-                    outerCircle={props.outerCircle}
-                    needle={props.needle}
-                    speedArc={props.speedArc}
-                />
+                <div style={{ padding: "30px 0" }}>
+                    <div style={{
+                        display: "flex",
+                        flexWrap: "wrap",
+                        marginRight: "-15px",
+                        marginLeft: "-15px"
+                    }}>
+                        <Speedometer
+                            displayValue={props.displayValue}
+                            rotation={props.rotation}
+                            innerCircle={props.innerCircle}
+                            outerCircle={props.outerCircle}
+                            needle={props.needle}
+                            speedArc={props.speedArc}
+                        />
+                        <div style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center",
+                            alignItems: "center",
+                        }}>
+                            <div style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                fontFamily: "SegoePro",
+                                fontWeight: "700",
+                                borderRadius: "35px",
+                                border: "2px solid #fff",
+                                textTransform: "uppercase",
+                                color: "#fff",
+                                cursor: "pointer",
+                                boxSizing: "border-box",
+                                backgroundColor: "transparent",
+                                transition: "all .4s ease-in-out",
+                                textDecoration: "none",
+                                fontSize: "14px",
+                                padding: "10px 30px",
+                                marginBottom: "20px",
+                                width: "130px"
+                            }}>
+                                Start
+                            </div>
+                            <div style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                fontFamily: "SegoePro",
+                                fontWeight: "700",
+                                borderRadius: "35px",
+                                border: "2px solid #fff",
+                                textTransform: "uppercase",
+                                color: "#fff",
+                                cursor: "pointer",
+                                boxSizing: "border-box",
+                                backgroundColor: "transparent",
+                                transition: "all .4s ease-in-out",
+                                textDecoration: "none",
+                                fontSize: "14px",
+                                padding: "10px 30px",
+                                marginBottom: "20px",
+                                width: "130px"
+                            }}>
+                                Stop
+                            </div>
+                            <div style={{
+                                fontSize: "14px",
+                                fontWeight: "700",
+                                color: "#fff",
+                                textTransform: "capitalize",
+                                marginTop: "30px",
+                                marginBottom: "15px",
+                            }}>
+                                MEDIAN LATENCY {props.medianLatency} MS
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div style={{
                     display: "flex",
                     flexDirection: "column",
@@ -63,13 +134,15 @@ export function Gauge(props) {
                     }}>
                         TOP QUARK DETECTION
                     </div>
-                    <img 
+                    <img
                         style={{
                             border: "2px solid #88878d"
                         }}
-                        src="hadron-collider-small.gif" 
-                        alt="" 
+                        src="hadron-collider-small.gif"
+                        alt=""
                     />
+                    <div style={{ color: "#fff" }}>Top Quark = {props.topQuarkResults} Results</div>
+                    <div style={{ color: "#fff" }}>Non - Top Quark = {props.nonTopQuarkResults} Results</div>
                 </div>
             </div>
         </React.Fragment>

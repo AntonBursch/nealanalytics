@@ -6,6 +6,9 @@ export function CPU() {
     <Gauge
       displayValue={8}
       rotation={-45}
+      topQuarkResults={1}
+      nonTopQuarkResults={723}
+      medianLatency={1324.95}
       gaugeColor="#27ae60"
       gaugeTitle="CPU"
       gaugeIcon="gauge-icon (1).svg"
